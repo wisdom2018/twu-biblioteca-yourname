@@ -41,6 +41,7 @@ public class LibrayTest {
         assertThat( out.toString(), containsString( "Menu" ));
     }
 
+
     @Test
     public void borrowBook_test() {
         int bookID = 1;
@@ -61,5 +62,27 @@ public class LibrayTest {
         int bookID = 1;
         libray.returnBook(bookID);
         assertThat(out.toString(),containsString("return"));
+    }
+
+    @Test
+    public void selectMenu_invalidInput() {
+        String input = "6";
+        libray.selectMenu(input);
+        assertThat(out.toString(),containsString("valid"));
+    }
+
+    @Test
+    public void selectMenu_validInput() {
+        String input = "1";
+        libray.selectMenu(input);
+        assertThat(out.toString(),containsString("wisdom"));
+
+    }
+
+    @Test
+    public void welcomeApp() {
+        String welcome = "*";
+        libray.welcomeApp();
+        assertThat(out.toString(),containsString(welcome));
     }
 }
